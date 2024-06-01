@@ -1,13 +1,13 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from 'react-hot-toast';
-import { useContext, useState } from "react";
-import { AuthContext } from "../Providers/AuthProvider";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import logInImg from "../assets/loginImage/Security.jpg"
+import useAuth from '../Hooks/useAuth';
 
 const LogIn = () => {
-    const { signIn, googleLogIn } = useContext(AuthContext)
+    const { signIn, googleLogIn } = useAuth()
     const [showPassword, setShowPassword] = useState(false)
     const [error, setError] = useState("")
     const location = useLocation()
