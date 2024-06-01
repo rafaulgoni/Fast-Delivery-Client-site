@@ -8,7 +8,7 @@ import { toast } from 'react-hot-toast';
 
 const Register = () => {
     const navigate = useNavigate()
-    const {createUser, updateUserProfile} = useAuth();
+    const {createUser, updateUserProfile, googleLogIn} = useAuth();
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const [error, setError] = useState("")
@@ -48,17 +48,28 @@ const Register = () => {
                 console.error(error)
             })
     }
+
+    const handleGoogle = () => {
+        googleLogIn()
+            .then(() => {
+                navigate(location?.state ? location.state : '/')
+                toast.success('Successfully login user!')
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
     return (
         <div>
            <Helmet>
                 <title>Book Store | Register</title>
             </Helmet>
-            <div className="hero bg-base-200 container mx-auto">
+            <div className="hero container mx-auto">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center">
                         <img src={registerImg} alt="" />
                     </div>
-                    <div className="card shrink-0 w-full max-w-sm bg-base-100 animate__animated animate__backInUp">
+                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 animate__animated animate__backInUp">
                         <form onSubmit={handleRegister} className="card-body">
                             <h1 className="text-4xl font-bold animate__animated animate__backInLeft">Create an account</h1>
                             <div className="form-control">
@@ -121,6 +132,10 @@ const Register = () => {
                                 <button className="btn bg-[#FF3811] font-bold">Register</button>
                             </div>
                         </form>
+                        <div className="space-y-2 p-5">
+                            <div className="divider">Login with social accounts</div>
+                            <button onClick={handleGoogle} className="border border-blue-800 btn w-full text-blue-600 font-bold animate__animated animate__backInLeft"><img className="w-10" src={'https://i.ibb.co/F8yRqqk/google-icon-1.png'} alt="" />Continue with Google</button>
+                        </div>
                         <div className="text-center p-3">
                             <p>Already have an account? <Link to='/login'><u className="font-bold text-[#FF3811]">Login</u></Link></p>
                         </div>
