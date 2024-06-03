@@ -8,7 +8,6 @@ const Navbar = () => {
 
     const links = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family'}>Home</NavLink></li>
-        <li><NavLink to='/allBook' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family'}>All BooK</NavLink></li>
 
     </>
 
@@ -45,7 +44,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="">
-                        <img className="bg-base-100 rounded-3xl opacity-30 w-28 md:w-36 animate__animated animate__heartBeat" src={'https://i.ibb.co/0Z5gYTY/book-logo-design-removebg-preview.png'} alt="" />
+                        <img className="rounded-3xl w-28 h-10 md:w-36 animate__animated animate__heartBeat" src={'https://i.ibb.co/tDXZDzs/Fast-delivery-1024x548.png'} alt="" />
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">

@@ -62,7 +62,7 @@ const Register = () => {
     return (
         <div>
            <Helmet>
-                <title>Book Store | Register</title>
+                <title>Fast Delivery | Register</title>
             </Helmet>
             <div className="hero container mx-auto">
                 <div className="hero-content flex-col lg:flex-row">

@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
-import { IoIosFlash } from "react-icons/io";
 import { useEffect, useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
@@ -17,32 +16,30 @@ const Reviews = () => {
             })
     }, [])
     return (
-        <div>
+        <div className='mb-16'>
             <div className='text-center space-y-2'>
                 <h3 className='text-[#FF3811] font-bold'>~~~ What Our Clients Say ~~~</h3>
                 <hr className='border-b-4 border-dashed w-1/6 mx-auto' />
-                <h1 className='text-6xl font-bold'>Retrospection</h1>
+                <h1 className='lg:text-6xl text-3xl font-bold'>The Top Delivery Man</h1>
                 <hr className='border-b-4 border-dashed w-2/6 mx-auto' />
             </div>
-            <div>
+            <div className='mt-5'>
                 <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper">
                     {
                         reviews.map(review => <SwiperSlide
                             key={review._id}
                         >
-                            <div className='m-16'>
-                                <div className='flex justify-center items-center'>
+                            <div className="card lg:card-side bg-base-100 border max-w-[900px] mx-auto">
+                                <figure className='w-96'><img src={review.image} alt="Album" /></figure>
+                                <div className="card-body">
                                     <Rating
                                         style={{ maxWidth: 180 }}
                                         value={review.rating}
                                         readOnly
                                     />
+                                    <h2 className="card-title text-3xl">Name: {review.name}</h2>
+                                    <p><span className='font-bold'>One of the best words ever written for me:</span><br/>{review.details}</p>
                                 </div>
-                                <p className='text-3xl flex items-center justify-center mt-4 mb-4'>
-                                    <IoIosFlash className='text-[#FF3811]' />
-                                </p>
-                                <p className='max-w-[800px] mx-auto'>{review.details}</p>
-                                <h3 className='text-2xl text-[#FF3811] text-center'>{review.name}</h3>
                             </div>
                         </SwiperSlide>)
                     }

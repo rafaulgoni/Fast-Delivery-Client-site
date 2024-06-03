@@ -6,8 +6,8 @@ const Footer = () => {
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <a className="flex justify-center space-x-3 lg:justify-start">
-                        <div className="flex items-center justify-center rounded-full dark:bg-violet-600">
-                            <img src={'https://i.ibb.co/0Z5gYTY/book-logo-design-removebg-preview.png'} alt="" />
+                        <div className="flex items-center justify-center rounded-full dark:bg-violet-600 w-80">
+                            <img src={'https://i.ibb.co/tDXZDzs/Fast-delivery-1024x548.png'} alt="" />
                         </div>
                     </a>
                 </div>

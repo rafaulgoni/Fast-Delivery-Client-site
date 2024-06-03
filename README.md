@@ -1,7 +1,7 @@
-# Project Name: Book Store
+# Project Name: Fast delivery
 
-Description: Welcome to Book Store – Your Ultimate Parcel Delivery Solution!
-Book Store is a cutting-edge parcel management platform designed to revolutionize the way you handle deliveries. Whether you're a customer looking to send a parcel swiftly, an admin managing logistics, or a delivery person ensuring timely arrivals, Book Store offers a seamless and efficient experience for everyone involved.
+Description: Welcome to Fast delivery – Your Ultimate Parcel Delivery Solution!
+Fast delivery is a cutting-edge parcel management platform designed to revolutionize the way you handle deliveries. Whether you're a customer looking to send a parcel swiftly, an admin managing logistics, or a delivery person ensuring timely arrivals, Fast delivery offers a seamless and efficient experience for everyone involved.
 
 For Customers:
 Easy Booking: Send parcels effortlessly with just a few clicks. Our intuitive interface makes the booking process quick and straightforward.
@@ -15,11 +15,11 @@ For Delivery Personnel:
 Assigned Deliveries: View and manage your assigned deliveries effortlessly. Update delivery statuses in real-time and keep track of your performance.
 Route Optimization: Access optimized delivery routes to ensure timely and efficient deliveries. Save time and increase productivity with smart route planning.
 Performance Tracking: Monitor your delivery history and performance metrics to stay on top of your game.
-Why Choose Book Store?
+Why Choose Fast delivery?
 User-Friendly Interface: Navigate through the platform with ease, thanks to our intuitive and well-designed interface.
 Reliable & Secure: Rest assured that your parcels are in safe hands. We prioritize security and reliability in every step of the delivery process.
 24/7 Support: Have questions or need assistance? Our dedicated support team is available around the clock to help you with any issues.
-Experience the future of parcel delivery with Book Store. Join us today and discover how we can make your delivery process faster, easier, and more efficient than ever before.
+Experience the future of parcel delivery with Fast delivery. Join us today and discover how we can make your delivery process faster, easier, and more efficient than ever before.
 
 
 

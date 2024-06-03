@@ -1,21 +1,65 @@
 import './ContactUs.css'
+import CountUp from 'react-countup';
+import { MdBookmarkAdded } from "react-icons/md";
+import { AiOutlineDeliveredProcedure } from "react-icons/ai";
+import { FaUsers } from "react-icons/fa";
 
 const ContactUs = () => {
     return (
-        <div className="container mx-auto contact text-white mb-20 md:p-10 bg-fixed">
-            <div className='py-8 px-16 bg-slate-500 bg-opacity-40'>
-                <div className=' md:ml-10'>
-                    <div className="">
-                        <div className=" border-b-2 border-[#FF3811] p-4 space-y-3">
-                            <div className="lg:px-28 pb-4 mx-auto">
-                                <h1 data-aos="zoom-in-down" data-aos-delay="500" className="border-l-2 border-[#FF3811] rounded-full text-5xl font-extrabold">Contact Us</h1>
-                                <div className=" grid md:grid-cols-2 lg:grid-cols-4 gap-3 w-full">
-                                    <input data-aos="zoom-in-down" data-aos-delay="1000" className=" p-4 border w-full rounded-lg" type="text" placeholder="name" />
-                                    <input data-aos="zoom-in-down" data-aos-delay="1500" className=" p-4 border w-full rounded-lg" type="email" placeholder="email" />
-                                    <input data-aos="zoom-in-down" data-aos-delay="2000" className=" p-4 border w-full rounded-lg" type="number" placeholder="number" />
-                                    <input data-aos="zoom-in" data-aos-delay="2500" type="submit" className="border w-full rounded-lg  bg-[#FF3811] border-none font-bold" />
-                                </div>
-                            </div>
+        <div className="contact mb-20 md:p-10 text-white bg-fixed">
+            <div className='md:py-8 md:px-16 bg-slate-500 bg-opacity-40'>
+                <div className="lg:px-28 md:pb-4 mx-auto">
+                    <div className='text-center space-y-3'>
+                        <h3 className='text-[#FF3811] font-bold'>~~~ Our app details ~~~</h3>
+                        <hr className='border-b-4 border-dashed md:w-1/6 mx-auto' />
+                        <h1 className='text-6xl font-bold text-white'>All Count</h1>
+                        <hr className='border-b-4 border-dashed md:w-2/6 mx-auto' />
+                    </div>
+                    <div className=" grid md:grid-cols-3 lg:grid-cols-3 md:space-x-10">
+                        <div>
+                            <CountUp start={0} end={506}>
+                                {({ countUpRef, start }) => (
+                                    <div className='grid space-y-2 text-center'>
+                                        <div className='p-3 rounded-xl'>
+                                            <p className='text-5xl flex justify-center text-[#FF3811]'><MdBookmarkAdded /></p>
+                                            <p className=' text-3xl font-bold'>Booked Oder</p>
+                                            <p>The Total Number of Parcels Booked refers to the count of parcels registered for delivery by a courier service within a given time frame.</p>
+                                            <button className='font-bold text-5xl text-[#FF3811]' ref={countUpRef} />
+                                        </div>
+                                        <button onClick={start} className='font-bold btn btn-sm border-none bg-[#FF3811] rounded-xl'>Start</button>
+                                    </div>
+                                )}
+                            </CountUp>
+                        </div>
+                        <div>
+                            <CountUp start={0} end={305}>
+                                {({ countUpRef, start }) => (
+                                    <div className='grid space-y-2 text-center'>
+                                        <div className='lg:p-3 rounded-xl'>
+                                            <p className='text-5xl flex justify-center text-[#FF3811]'><AiOutlineDeliveredProcedure/></p>
+                                            <p className=' text-3xl font-bold'>Delivered Done</p>
+                                            <p>The Total Number of Parcels Delivered refers to the count of parcels registered for delivery by a courier service a given time</p>
+                                            <button className='font-bold text-5xl text-[#FF3811]' ref={countUpRef} />
+                                        </div>
+                                        <button onClick={start} className='font-bold btn btn-sm border-none bg-[#FF3811] rounded-xl'>Start</button>
+                                    </div>
+                                )}
+                            </CountUp>
+                        </div>
+                        <div>
+                            <CountUp start={0} end={956}>
+                                {({ countUpRef, start }) => (
+                                    <div className='grid space-y-2 text-center'>
+                                        <div className='p-3 rounded-xl'>
+                                            <p className='text-5xl flex justify-center text-[#FF3811]'><FaUsers /></p>
+                                            <p className=' text-3xl font-bold'>Users</p>
+                                            <p> Total Number of People Using in our app the count of parcels registered courier service within a given time frame.</p>
+                                            <button className='font-bold text-5xl text-[#FF3811]' ref={countUpRef} />
+                                        </div>
+                                        <button onClick={start} className='font-bold btn btn-sm border-none bg-[#FF3811] rounded-xl'>Start</button>
+                                    </div>
+                                )}
+                            </CountUp>
                         </div>
                     </div>
                 </div>
