@@ -20,7 +20,7 @@ const Banner = () => {
     };
 
     return (
-        <div className='mb-20'>
+        <div className='mb-5'>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
@@ -70,7 +70,7 @@ const Banner = () => {
                                         Analytics & Reports: Gain insights into your delivery operations with detailed analytics and reports. Make data-driven decisions to optimize efficiency. <br />
                                         User Management: Easily manage customer and delivery personnel accounts, ensuring smooth operation and communication.</p>
                                     <div>
-                                        <button className='btn bg-[#FF3811] flex items-center border-none'><IoCall/> Contact us</button>
+                                        <button className='flex items-center font-bold border-b-4 border-[#FF3811] p-3 rounded-xl'><span className='text-[#FF3811] mr-1'><IoCall/></span> Contact us</button>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@ const Banner = () => {
                                         Route Optimization: Access optimized delivery routes to ensure timely and efficient deliveries. Save time and increase productivity with smart route planning.<br />
                                         Performance Tracking: Monitor your delivery history and performance metrics to stay on top of your game.</p>
                                     <div>
-                                        <button className='btn bg-[#FF3811] flex items-center border-none'><FaMapMarkerAlt /> Live Location</button>
+                                        <button className='flex items-center font-bold border-b-4 border-[#FF3811] p-3 rounded-xl'><span className='text-[#FF3811] mr-1'><FaMapMarkerAlt /></span> Live Location</button>
                                     </div>
                                 </div>
                             </div>
