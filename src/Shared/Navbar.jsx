@@ -71,8 +71,8 @@ const Navbar = () => {
                                     <img src={user.photoURL} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
                                     <div className="space-y-4 text-center divide-y dark:divide-gray-300">
                                         <div className="my-2 space-y-1">
-                                            <h2 className="text-xl font-semibold sm:text-2xl">{user.displayName}</h2>
-                                            <p className="px-2 text-xs sm:text-base dark:text-gray-600"><samp className=" font-bold">Gmail: </samp>{user.email}</p>
+                                            <h2 className="text-black text-xl font-semibold sm:text-2xl">{user.displayName}</h2>
+                                            <p className="text-black px-2 text-xs sm:text-base dark:text-gray-600"><samp className=" font-bold">Gmail: </samp>{user.email}</p>
                                         </div>
                                         <div className="flex justify-center pt-2 space-x-4 align-center">
                                             <button onClick={handleLogOut} className="btn btn-sm font-bold bg-[#FF3811] w-full">Log out</button>
