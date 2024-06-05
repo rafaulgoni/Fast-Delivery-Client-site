@@ -4,11 +4,11 @@ import useAuth from '../Hooks/useAuth';
 
 const Navbar = () => {
     const [theme, setTheme] = useState('light')
-    const { user, logOut } = useAuth()
+    const { user } = useAuth()
 
     const links = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family'}>Home</NavLink></li>
-
+        {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
     </>
 
     const handleToggle = e => {
@@ -25,11 +25,7 @@ const Navbar = () => {
         document.querySelector('html').setAttribute('data-theme', localTheme)
     }, [theme])
 
-    const handleLogOut = () => {
-        logOut()
-            .than()
-            .catch()
-    }
+
 
     return (
         <div className="container mx-auto">
@@ -60,27 +56,13 @@ const Navbar = () => {
                         </div>
                     </button>
                     {
-                        user ? <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src={user.photoURL} alt="" />
-                                </div>
-                            </div>
-                            <ul tabIndex={0} className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box">
-                                <div className="flex flex-col justify-center max-w-xs p-2 rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800 w-80">
-                                    <img src={user.photoURL} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
-                                    <div className="space-y-4 text-center divide-y dark:divide-gray-300">
-                                        <div className="my-2 space-y-1">
-                                            <h2 className="text-black text-xl font-semibold sm:text-2xl">{user.displayName}</h2>
-                                            <p className="text-black px-2 text-xs sm:text-base dark:text-gray-600"><samp className=" font-bold">Gmail: </samp>{user.email}</p>
-                                        </div>
-                                        <div className="flex justify-center pt-2 space-x-4 align-center">
-                                            <button onClick={handleLogOut} className="btn btn-sm font-bold bg-[#FF3811] w-full">Log out</button>
+                        user ? <Link to="/dashboard/myProfile">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img src={user.photoURL} alt="" />
                                         </div>
                                     </div>
-                                </div>
-                            </ul>
-                        </div> : ""
+                                </Link> : ""
                     }
                     <div>
                         {

@@ -4,6 +4,12 @@ import Error from "../Error/Error";
 import Home from "../Pages/Home/Home";
 import Register from "../Auth/Register";
 import LogIn from '../Auth/LogIn';
+import DashboardLayOut from "../Layout/DashboardLayOut";
+import BookAParcel from "../Pages/Dashboard/BookAParcel";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import MyParcels from "../Pages/Dashboard/MyParcels";
+import MyProfile from "../Pages/Dashboard/MyProfile";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -25,4 +31,26 @@ export const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path: "/dashboard",
+      element: <PrivateRoute><DashboardLayOut/></PrivateRoute> ,
+      children: [
+        {
+          path: '/dashboard',
+          element: <Dashboard/>
+        },
+        {
+          path:'/dashboard/book',
+          element: <BookAParcel/>
+        },
+        {
+          path:'/dashboard/myParcel',
+          element: <MyParcels/>
+        },
+        {
+          path:'/dashboard/myProfile',
+          element: <MyProfile/>
+        },
+      ]
+    }
   ]);
