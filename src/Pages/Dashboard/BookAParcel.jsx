@@ -1,6 +1,6 @@
-
+import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { useState } from 'react';
 
@@ -8,7 +8,7 @@ const BookAParcel = () => {
     const [parcelWeight, setParcelWeight] = useState('');
     const [totalPrice, setTotalPrice] = useState(0);
     const { user } = useAuth()
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const handleAddCraft = event => {
         event.preventDefault();
@@ -23,34 +23,36 @@ const BookAParcel = () => {
         const RequestedDeliveryDate = form.RequestedDeliveryDate.value;
         const DeliveryAddressLatitude = form.DeliveryAddressLatitude.value;
         const DeliveryAddressLongitude = form.DeliveryAddressLongitude.value;
-
-
         const email = user.email;
-        const displayName = user.displayName
+        const displayName = user.displayName;
+        const bookingDate = new Date();
+        const DeliveryMenID = "Admin Assigns a Delivery Men.";
+        const BookingStatus = "pending"
+        const ApproximateDeliveryDate = "2024-05-02"
 
-        const Booking = { number, ParcelType, ParcelWeight, price, ReceiverName, ReceiverPhoneNumber, ParcelDeliveryAddress, RequestedDeliveryDate,
-            DeliveryAddressLatitude, DeliveryAddressLongitude, email, displayName }
+        const Booking = {
+            number, ParcelType, ParcelWeight, price, ReceiverName, ReceiverPhoneNumber, ParcelDeliveryAddress, RequestedDeliveryDate,
+            DeliveryAddressLatitude, DeliveryAddressLongitude, email, displayName, bookingDate, DeliveryMenID, BookingStatus, ApproximateDeliveryDate
+        }
 
-        console.log(Booking);
-
-        // fetch('', {
-        //     method: "POST",
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(Booking)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.insertedId) {
-
-        //             event.target.reset()
-        //             navigate('/myCraft')
-        //         }
-        //     })
+        fetch('http://localhost:5000/book', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(Booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    toast.success('Booking Successfully!')
+                    event.target.reset()
+                    navigate('/dashboard/myParcel')
+                }
+            })
     }
 
-    
+
     const calculatePrice = () => {
         const weight = parseFloat(parcelWeight);
         let price = 0;
