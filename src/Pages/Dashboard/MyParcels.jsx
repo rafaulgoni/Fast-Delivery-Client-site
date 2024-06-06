@@ -2,12 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import usePublic from '../../Hooks/usePublic';
 import useAuth from '../../Hooks/useAuth';
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { Helmet } from 'react-helmet-async';
+// import { useState } from "react";
 
 const MyParcels = () => {
     const { user } = useAuth()
     const publicAPT = usePublic()
 
-    const { data: book = [] } = useQuery({
+    // const [manage, setManage] = useState([])
+
+    const { data: book = [], refetch } = useQuery({
         queryKey: ['/book'],
         queryFn: async () => {
             const res = await publicAPT.get(`/book/${user.email}`);
@@ -15,8 +20,40 @@ const MyParcels = () => {
 
         }
     })
+
+    const handleCancel = _id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, cancel it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/book/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire(
+                                'Canceled!',
+                                'Your booking has been Canceled.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
     return (
         <div>
+            <Helmet>
+                <title>Royal Service | Manage Service</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -54,7 +91,7 @@ const MyParcels = () => {
                                 <td>{booked.DeliveryMenID}</td>
                                 <td><button className="bg-green-100 rounded-3xl btn-sm btn">{booked.BookingStatus}</button></td>
                                 <td><Link to={`/dashboard/userUpdate/${booked._id}`} className="bg-green-500 rounded-3xl btn-sm btn">Update</Link></td>
-                                <td><button className="bg-[#FF3811] rounded-3xl btn-sm btn">Cancel</button></td>
+                                <td><button onClick={() => handleCancel(booked._id)} className="bg-[#FF3811] rounded-3xl btn-sm btn">Cancel</button></td>
                                 <td><button className="bg-green-500 rounded-3xl btn-sm btn">Review</button></td>
                                 <td><button className="bg-green-800 rounded-3xl btn-sm btn font-bold">Pay</button></td>
                             </tr>
