@@ -10,6 +10,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyParcels from "../Pages/Dashboard/MyParcels";
 import MyProfile from "../Pages/Dashboard/MyProfile";
 import PrivateRoute from "./PrivateRoute";
+import UserUpdate from "../Components/UserUpdate";
 
 export const router = createBrowserRouter([
     {
@@ -50,6 +51,11 @@ export const router = createBrowserRouter([
         {
           path:'/dashboard/myProfile',
           element: <MyProfile/>
+        },
+        {
+          path:'/dashboard/userUpdate/:id',
+          element: <UserUpdate/>,
+          loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
         },
       ]
     }
