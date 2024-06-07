@@ -4,9 +4,14 @@ import { MdBookmarkAdded } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
+import useAdmin from "../Hooks/useAdmin";
+import useDeliveryMen from "../Hooks/useDeliveryMen";
+import useUsers from "../Hooks/useUsers";
 
 const SiteBar = () => {
-
+    const [isAdmin] = useAdmin();
+    const [isDelivery] = useDeliveryMen()
+    const [isUsers] = useUsers()
     const { user, logOut } = useAuth()
 
     const handleLogOut = () => {
@@ -37,24 +42,67 @@ const SiteBar = () => {
                                 <span>Dashboard</span>
                             </Link>
                         </li>
-                        <li className="dark:bg-gray-100 dark:text-gray-900">
-                            <NavLink to="/dashboard/book" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
-                                <MdBookmarkAdd className="w-5 h-5 fill-current dark:text-gray-600" />
-                                <span>Book A Parcel</span>
-                            </NavLink>
-                        </li>
-                        <li className="dark:bg-gray-100 dark:text-gray-900">
-                            <NavLink to="/dashboard/myParcel" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
-                                <MdBookmarkAdded className="w-5 h-5 fill-current dark:text-gray-600" />
-                                <span>My Parcels</span>
-                            </NavLink>
-                        </li>
-                        <li className="dark:bg-gray-100 dark:text-gray-900">
-                            <NavLink to="/dashboard/myProfile" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
-                                <FaUserCircle className="w-5 h-5 fill-current dark:text-gray-600" />
-                                <span>My Profile</span>
-                            </NavLink>
-                        </li>
+                        {
+                            isAdmin && <>
+                                <li className="dark:bg-gray-100 dark:text-gray-900">
+                                    <NavLink to="/dashboard/allParcel" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <MdBookmarkAdd className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>All Parcels</span>
+                                    </NavLink>
+                                </li>
+                                <li className="dark:bg-gray-100 dark:text-gray-900">
+                                    <NavLink to="/dashboard/allDeliveryMen" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <MdBookmarkAdded className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>All Delivery Men</span>
+                                    </NavLink>
+                                </li>
+                                <li className="dark:bg-gray-100 dark:text-gray-900">
+                                    <NavLink to="/dashboard/allUser" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <MdBookmarkAdded className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>All Users</span>
+                                    </NavLink>
+                                </li>
+                            </>
+                        }
+
+                        {
+                            isDelivery && <>
+                                <li className="dark:bg-gray-100 dark:text-gray-900">
+                                    <NavLink to="" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <MdBookmarkAdded className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>My Delivery List</span>
+                                    </NavLink>
+                                </li>
+                                <li className="dark:bg-gray-100 dark:text-gray-900">
+                                    <NavLink to="" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <MdBookmarkAdded className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>My Reviews</span>
+                                    </NavLink>
+                                </li>
+                            </>
+                        }
+                        {
+                            isUsers && <>
+                                <li className="dark:bg-gray-100 dark:text-gray-900">
+                                    <NavLink to="/dashboard/book" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <MdBookmarkAdd className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>Book A Parcel</span>
+                                    </NavLink>
+                                </li>
+                                <li className="dark:bg-gray-100 dark:text-gray-900">
+                                    <NavLink to="/dashboard/myParcel" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <MdBookmarkAdded className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>My Parcels</span>
+                                    </NavLink>
+                                </li>
+                                <li className="dark:bg-gray-100 dark:text-gray-900">
+                                    <NavLink to="/dashboard/myProfile" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <FaUserCircle className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>My Profile</span>
+                                    </NavLink>
+                                </li>
+                            </>
+                        }
                         <li className="dark:bg-gray-100 dark:text-gray-900">
                             <Link to="/" className="flex items-center space-x-3 p-2">
                                 <FaHome className="w-5 h-5 fill-current dark:text-gray-600" />

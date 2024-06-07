@@ -11,6 +11,11 @@ import MyParcels from "../Pages/Dashboard/MyParcels";
 import MyProfile from "../Pages/Dashboard/MyProfile";
 import PrivateRoute from "./PrivateRoute";
 import UserUpdate from "../Components/UserUpdate";
+import AllParcels from '../Pages/Dashboard/Admin/AllParcels';
+import AllDeliveryMen from "../Pages/Dashboard/Admin/AllDeliveryMen";
+import AllUser from "../Pages/Dashboard/Admin/AllUser";
+
+
 
 export const router = createBrowserRouter([
     {
@@ -57,6 +62,20 @@ export const router = createBrowserRouter([
           element: <UserUpdate/>,
           loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
         },
+        //admin
+        {
+          path:'/dashboard/allParcel',
+          element: <AllParcels/>
+        },
+        {
+          path:'/dashboard/allDeliveryMen',
+          element: <AllDeliveryMen/>
+        },
+        {
+          path:'/dashboard/allUser',
+          element: <AllUser/>
+        },
+
       ]
     }
   ]);

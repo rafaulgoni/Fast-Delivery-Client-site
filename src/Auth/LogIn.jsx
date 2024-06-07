@@ -5,8 +5,10 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import logInImg from "../assets/loginImage/Security.jpg"
 import useAuth from '../Hooks/useAuth';
+import usePublic from "../Hooks/usePublic";
 
 const LogIn = () => {
+    const publicAPI = usePublic()
     const { signIn, googleLogIn } = useAuth()
     const [showPassword, setShowPassword] = useState(false)
     const [error, setError] = useState("")
@@ -32,9 +34,19 @@ const LogIn = () => {
     }
     const handleGoogle = () => {
         googleLogIn()
-            .then(() => {
-                navigate(location?.state ? location.state : '/')
-                toast.success('Successfully login user!')
+            .then((result) => {
+                const userInfo = {
+                    name: result.user?.displayName,
+                    email: result.user?.email,
+                    photo: result.user?.photoURL,
+                    Role: "publicUser"
+                };
+                publicAPI.post("/users", userInfo).then(res => {
+                    if (res.data.insertedId) {
+                        navigate(location?.state ? location.state : '/')
+                        toast.success('Successfully login user!')
+                    }
+                })
             })
             .catch(error => {
                 console.error(error)

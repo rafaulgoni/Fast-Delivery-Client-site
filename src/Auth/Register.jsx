@@ -5,10 +5,12 @@ import { Helmet } from 'react-helmet-async';
 import registerImg from "../assets/loginImage/Security.jpg"
 import useAuth from '../Hooks/useAuth';
 import { toast } from 'react-hot-toast';
+import usePublic from '../Hooks/usePublic';
 
 const Register = () => {
+    const publicAPI = usePublic()
     const navigate = useNavigate()
-    const {createUser, updateUserProfile, googleLogIn} = useAuth();
+    const { createUser, updateUserProfile, googleLogIn } = useAuth();
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const [error, setError] = useState("")
@@ -20,7 +22,8 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
-        
+        const Role = "publicUser"
+
         if (password.length < 6) {
             setError('password must be 6 characters')
             return
@@ -39,9 +42,19 @@ const Register = () => {
             .then(() => {
                 updateUserProfile(name, photo)
                     .then(() => {
-                        e.target.reset()
-                        toast.success('Successfully create user!')
-                        navigate('/')
+                        const userInfo = {
+                            name: name,
+                            email: email,
+                            photo: photo,
+                            Role: Role
+                        };
+                        publicAPI.post("/users", userInfo).then(res => {
+                            if (res.data.insertedId) {
+                                e.target.reset()
+                                toast.success('Successfully create user!')
+                                navigate('/')
+                            }
+                        })
                     })
             })
             .catch(error => {
@@ -51,9 +64,19 @@ const Register = () => {
 
     const handleGoogle = () => {
         googleLogIn()
-            .then(() => {
-                navigate(location?.state ? location.state : '/')
-                toast.success('Successfully login user!')
+            .then((result) => {
+                const userInfo = {
+                    name: result.user?.displayName,
+                    email: result.user?.email,
+                    photo: result.user?.photoURL,
+                    Role: "publicUser"
+                };
+                publicAPI.post("/users", userInfo).then(res => {
+                    if (res.data.insertedId) {
+                        navigate(location?.state ? location.state : '/')
+                        toast.success('Successfully login user!')
+                    }
+                })
             })
             .catch(error => {
                 console.error(error)
@@ -61,7 +84,7 @@ const Register = () => {
     }
     return (
         <div>
-           <Helmet>
+            <Helmet>
                 <title>Fast Delivery | Register</title>
             </Helmet>
             <div className="hero container mx-auto">
@@ -147,3 +170,30 @@ const Register = () => {
 };
 
 export default Register;
+
+
+// createUser(email, password)
+// .then(result => {
+//   console.log(result.user);
+//   updateUserProfile(name, photo).then(() => {
+//     // create user entry in the database
+//     const userInfo = {
+//       name: name,
+//       email: email,
+//       photo: photo,
+//     };
+//     axiosPublic.post("/users", userInfo).then(res => {
+//       if (res.data.insertedId) {
+//         toast.success("user Create successfully");
+//         setSuccess("User created successfully");
+//         navigate(location?.state ? location.state : "/");
+//       }
+//     });
+//   });
+// })
+// .catch(error => {
+//   console.error(error);
+//   setError(error.massage);
+//   toast.error(error);
+// });
+// };
