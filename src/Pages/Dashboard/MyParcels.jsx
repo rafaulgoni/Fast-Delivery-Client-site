@@ -4,13 +4,10 @@ import useAuth from '../../Hooks/useAuth';
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from 'react-helmet-async';
-// import { useState } from "react";
 
 const MyParcels = () => {
     const { user } = useAuth()
     const publicAPT = usePublic()
-
-    // const [manage, setManage] = useState([])
 
     const { data: book = [], refetch } = useQuery({
         queryKey: ['/book'],
@@ -91,7 +88,11 @@ const MyParcels = () => {
                                 <td>{booked.DeliveryMenID}</td>
                                 <td><button className="bg-green-100 rounded-3xl btn-sm btn">{booked.BookingStatus}</button></td>
                                 <td><Link to={`/dashboard/userUpdate/${booked._id}`} className="bg-green-500 rounded-3xl btn-sm btn">Update</Link></td>
-                                <td><button onClick={() => handleCancel(booked._id)} className="bg-[#FF3811] rounded-3xl btn-sm btn">Cancel</button></td>
+                                <td>
+                                    {
+                                        booked.BookingStatus ==="On The Way" ? <button className="bg-[#FF3811] rounded-3xl btn-sm btn">Cancel</button> : <button onClick={() => handleCancel(booked._id)} className="bg-[#FF3811] rounded-3xl btn-sm btn">Cancel</button>
+                                    }
+                                </td>
                                 <td><button className="bg-green-500 rounded-3xl btn-sm btn">Review</button></td>
                                 <td><button className="bg-green-800 rounded-3xl btn-sm btn font-bold">Pay</button></td>
                             </tr>
