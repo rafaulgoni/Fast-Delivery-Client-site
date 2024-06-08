@@ -83,7 +83,7 @@ const MyParcels = () => {
                                 <td>
                                     {booked.ParcelType}
                                     <br />
-                                    <span className="badge badge-ghost badge-sm">Price: {booked.price}</span>
+                                    <span className="badge badge-ghost badge-sm">Cost: {booked.price}</span>
                                 </td>
                                 <td>{booked.RequestedDeliveryDate}</td>
                                 <td>{booked.ApproximateDeliveryDate}</td>

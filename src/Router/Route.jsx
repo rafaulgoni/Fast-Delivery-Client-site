@@ -14,6 +14,7 @@ import UserUpdate from "../Components/UserUpdate";
 import AllParcels from '../Pages/Dashboard/Admin/AllParcels';
 import AllDeliveryMen from "../Pages/Dashboard/Admin/AllDeliveryMen";
 import AllUser from "../Pages/Dashboard/Admin/AllUser";
+import AdminUpdate from "../Pages/Dashboard/Admin/AdminUpdate/AdminUpdate";
 
 
 
@@ -65,7 +66,12 @@ export const router = createBrowserRouter([
         //admin
         {
           path:'/dashboard/allParcel',
-          element: <AllParcels/>
+          element: <AllParcels/>,
+        },
+        {
+          path:'/dashboard/adminUpdate/:id',
+          element: <AdminUpdate/>,
+          loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
         },
         {
           path:'/dashboard/allDeliveryMen',
