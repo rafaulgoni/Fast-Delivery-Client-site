@@ -1,6 +1,7 @@
 import usePublic from "../../../Hooks/usePublic";
 import { useQuery } from "@tanstack/react-query";
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const MyDeliveryList = () => {
 
@@ -86,6 +87,9 @@ const MyDeliveryList = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Fast Delivery | My Delivery List</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

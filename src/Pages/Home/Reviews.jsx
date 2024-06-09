@@ -32,7 +32,7 @@ const Reviews = () => {
                             <div className="card lg:card-side bg-base-100 border max-w-[900px] mx-auto">
                                 <figure className='w-96'><img src={review.image} alt="Album" /></figure>
                                 <div className="card-body">
-                                    <Rating
+                                <Rating
                                         style={{ maxWidth: 180 }}
                                         value={review.rating}
                                         readOnly
