@@ -18,6 +18,8 @@ import AdminUpdate from "../Pages/Dashboard/Admin/AdminUpdate/AdminUpdate";
 import MyDeliveryList from "../Pages/Dashboard/DeliveryMen/MyDeliveryList";
 import MyReview from "../Pages/Dashboard/DeliveryMen/MyReview";
 import ReviewUpdate from "../Components/ReviewUpdate";
+import DeliveryMenRoute from "./DeliveryMenRoute";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -74,30 +76,30 @@ export const router = createBrowserRouter([
         //delivery man
         {
           path:'/dashboard/myDelivery',
-          element: <MyDeliveryList/>,
+          element: <DeliveryMenRoute><MyDeliveryList/></DeliveryMenRoute> ,
         },
         {
           path:'/dashboard/myReview',
-          element: <MyReview/>,
+          element: <DeliveryMenRoute><MyReview/></DeliveryMenRoute>,
         },
 
         //admin
         {
           path:'/dashboard/allParcel',
-          element: <AllParcels/>,
+          element: <AdminRoute><AllParcels/></AdminRoute>,
         },
         {
           path:'/dashboard/adminUpdate/:id',
-          element: <AdminUpdate/>,
+          element: <AdminRoute><AdminUpdate/></AdminRoute>,
           loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
         },
         {
           path:'/dashboard/allDeliveryMen',
-          element: <AllDeliveryMen/>
+          element: <AdminRoute><AllDeliveryMen/></AdminRoute>,
         },
         {
           path:'/dashboard/allUser',
-          element: <AllUser/>
+          element: <AdminRoute><AllUser/></AdminRoute>,
         },
 
       ]
