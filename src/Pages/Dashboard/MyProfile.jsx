@@ -1,10 +1,14 @@
 
 import useAuth from '../../Hooks/useAuth';
+import { Helmet } from 'react-helmet-async';
 
 const MyProfile = () => {
     const { user } = useAuth()
     return (
         <div className="flex justify-center ">
+            <Helmet>
+                <title>Fast Delivery | My Profile</title>
+            </Helmet>
             <div className="max-w-md md:max-w-[900px] p-8 sm:flex sm:space-x-6">
                 <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
                     <img src={user.photoURL} alt="" className="object-cover object-center w-full h-full rounded dark:bg-gray-500" />

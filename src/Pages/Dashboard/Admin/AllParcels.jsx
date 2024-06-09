@@ -29,7 +29,7 @@ const AllParcels = () => {
                             <th>Booking Date</th>
                             <th>Requested Delivery Date</th>
                             <th>Cost</th>
-                            <th>Status</th>
+                            <th>Booking Status</th>
                             <th>Manage Button</th>
                         </tr>
                     </thead>
@@ -52,7 +52,7 @@ const AllParcels = () => {
                                 <td>{booked.bookingDate}</td>
                                 <td>{booked.RequestedDeliveryDate}</td>
                                 <td>{booked.price}</td>
-                                <td><button className="bg-green-100 rounded-3xl btn-sm btn">{booked.BookingStatus}</button></td>
+                                <td><button className="bg-green-500 rounded-3xl btn-sm btn">{booked.BookingStatus}</button></td>
                                 <th>
                                     <Link to={`/dashboard/adminUpdate/${booked._id}`} className="bg-[#FF3811] rounded-3xl btn-sm btn">Manege</Link>
                                 </th>

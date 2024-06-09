@@ -1,12 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import { MdBookmarkAdd } from "react-icons/md";
 import { MdBookmarkAdded } from "react-icons/md";
+import { MdReviews } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
 import useAdmin from "../Hooks/useAdmin";
 import useDeliveryMen from "../Hooks/useDeliveryMen";
 import useUsers from "../Hooks/useUsers";
+import { FaUsers } from "react-icons/fa";
 
 const SiteBar = () => {
     const [isAdmin] = useAdmin();
@@ -58,7 +60,7 @@ const SiteBar = () => {
                                 </li>
                                 <li className="dark:bg-gray-100 dark:text-gray-900">
                                     <NavLink to="/dashboard/allUser" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
-                                        <MdBookmarkAdded className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <FaUsers className="w-5 h-5 fill-current dark:text-gray-600" />
                                         <span>All Users</span>
                                     </NavLink>
                                 </li>
@@ -68,14 +70,14 @@ const SiteBar = () => {
                         {
                             isDelivery && <>
                                 <li className="dark:bg-gray-100 dark:text-gray-900">
-                                    <NavLink to="" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                    <NavLink to="/dashboard/myDelivery" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
                                         <MdBookmarkAdded className="w-5 h-5 fill-current dark:text-gray-600" />
                                         <span>My Delivery List</span>
                                     </NavLink>
                                 </li>
                                 <li className="dark:bg-gray-100 dark:text-gray-900">
-                                    <NavLink to="" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
-                                        <MdBookmarkAdded className="w-5 h-5 fill-current dark:text-gray-600" />
+                                    <NavLink to="/dashboard/myReview" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <MdReviews className="w-5 h-5 fill-current dark:text-gray-600" />
                                         <span>My Reviews</span>
                                     </NavLink>
                                 </li>
@@ -95,14 +97,14 @@ const SiteBar = () => {
                                         <span>My Parcels</span>
                                     </NavLink>
                                 </li>
-                                <li className="dark:bg-gray-100 dark:text-gray-900">
-                                    <NavLink to="/dashboard/myProfile" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
-                                        <FaUserCircle className="w-5 h-5 fill-current dark:text-gray-600" />
-                                        <span>My Profile</span>
-                                    </NavLink>
-                                </li>
                             </>
                         }
+                        <li className="dark:bg-gray-100 dark:text-gray-900">
+                            <NavLink to="/dashboard/myProfile" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                <FaUserCircle className="w-5 h-5 fill-current dark:text-gray-600" />
+                                <span>My Profile</span>
+                            </NavLink>
+                        </li>
                         <li className="dark:bg-gray-100 dark:text-gray-900">
                             <Link to="/" className="flex items-center space-x-3 p-2">
                                 <FaHome className="w-5 h-5 fill-current dark:text-gray-600" />

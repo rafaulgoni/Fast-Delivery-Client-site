@@ -46,10 +46,12 @@ const MyParcels = () => {
             }
         })
     }
+    
+
     return (
         <div>
             <Helmet>
-                <title>Royal Service | Manage Service</title>
+                <title>Fast Delivery | My Parcels</title>
             </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -87,13 +89,21 @@ const MyParcels = () => {
                                 <td>{booked.bookingDate}</td>
                                 <td>{booked.DeliveryMenID}</td>
                                 <td><button className="bg-green-100 rounded-3xl btn-sm btn">{booked.BookingStatus}</button></td>
-                                <td><Link to={`/dashboard/userUpdate/${booked._id}`} className="bg-green-500 rounded-3xl btn-sm btn">Update</Link></td>
                                 <td>
                                     {
-                                        booked.BookingStatus ==="On The Way" ? <button className="bg-[#FF3811] rounded-3xl btn-sm btn">Cancel</button> : <button onClick={() => handleCancel(booked._id)} className="bg-[#FF3811] rounded-3xl btn-sm btn">Cancel</button>
+                                        booked.BookingStatus === "On The Way" ? <button className=" rounded-3xl btn-sm btn">Update</button> : <Link to={`/dashboard/userUpdate/${booked._id}`} className="bg-green-500 rounded-3xl btn-sm btn">Update</Link>
                                     }
                                 </td>
-                                <td><button className="bg-green-500 rounded-3xl btn-sm btn">Review</button></td>
+                                <td>
+                                    {
+                                        booked.BookingStatus === "On The Way" ? <button className=" rounded-3xl btn-sm btn">Cancel</button> : <button onClick={() => handleCancel(booked._id)} className="bg-[#FF3811] rounded-3xl btn-sm btn">Cancel</button>
+                                    }
+                                </td>
+                                <td>
+                                    {
+                                       booked.BookingStatus === "On The Way" ? <button className="rounded-3xl btn-sm btn">Review</button> : <Link to={`/dashboard/reviewUpdate/${booked._id}`} className="bg-green-500 rounded-3xl btn-sm btn">Review</Link>
+                                    }
+                                </td>
                                 <td><button className="bg-green-800 rounded-3xl btn-sm btn font-bold">Pay</button></td>
                             </tr>
                         </tbody>)
