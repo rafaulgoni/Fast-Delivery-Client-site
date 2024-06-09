@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet-async';
 
 const AllDeliveryMen = () => {
     
     const [delivery, setDelivery] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/users?Role=deliveryMen")
+        fetch("http://localhost:5000/userDeliveryMen?Role=deliveryMen")
             .then(res => res.json())
             .then(data => {
                 setDelivery(data)
@@ -12,6 +13,9 @@ const AllDeliveryMen = () => {
     }, [])
     return (
         <div>
+            <Helmet>
+                <title>Fast Delivery | All Delivery Men</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>

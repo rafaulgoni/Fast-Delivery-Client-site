@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 
 const AllParcels = () => {
@@ -15,6 +16,9 @@ const AllParcels = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Fast Delivery | All Parcel</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
@@ -54,7 +58,9 @@ const AllParcels = () => {
                                 <td>{booked.price}</td>
                                 <td><button className="bg-green-500 rounded-3xl btn-sm btn">{booked.BookingStatus}</button></td>
                                 <th>
-                                    <Link to={`/dashboard/adminUpdate/${booked._id}`} className="bg-[#FF3811] rounded-3xl btn-sm btn">Manege</Link>
+                                    {
+                                        booked.BookingStatus === "Deliver" ? <button className="rounded-3xl btn-sm btn">Manege</button> : <Link to={`/dashboard/adminUpdate/${booked._id}`} className="bg-[#FF3811] rounded-3xl btn-sm btn">Manege</Link>
+                                    }
                                 </th>
                             </tr>
                             )

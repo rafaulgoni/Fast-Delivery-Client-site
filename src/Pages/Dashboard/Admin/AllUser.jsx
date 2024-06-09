@@ -1,6 +1,7 @@
 import usePublic from '../../../Hooks/usePublic';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const AllUser = () => {
     const publicAPT = usePublic()
@@ -85,6 +86,9 @@ const AllUser = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Fast Delivery | All user</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
