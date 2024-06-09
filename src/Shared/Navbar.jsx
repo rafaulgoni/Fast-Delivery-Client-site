@@ -4,11 +4,10 @@ import useAuth from '../Hooks/useAuth';
 
 const Navbar = () => {
     const [theme, setTheme] = useState('light')
-    const { user } = useAuth()
+    const { user, logOut } = useAuth()
 
     const links = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family'}>Home</NavLink></li>
-        {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
     </>
 
     const handleToggle = e => {
@@ -25,7 +24,11 @@ const Navbar = () => {
         document.querySelector('html').setAttribute('data-theme', localTheme)
     }, [theme])
 
-
+    const handleLogOut = () => {
+        logOut()
+            .than()
+            .catch()
+    }
 
     return (
         <div className="container mx-auto">
@@ -56,13 +59,18 @@ const Navbar = () => {
                         </div>
                     </button>
                     {
-                        user ? <Link to="/dashboard/myProfile">
-                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-10 rounded-full">
-                                            <img src={user.photoURL} alt="" />
-                                        </div>
-                                    </div>
-                                </Link> : ""
+                        user && <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL} alt="" />
+                                </div>
+                            </div>
+                            <ul tabIndex={0} className="mt-3 z-[10] p-4 shadow menu menu-sm text-black dropdown-content bg-base-100 rounded-box w-52 space-y-4">
+                                <li className="font-bold text-center">Name: {user.displayName}</li>
+                                <Link to='/dashboard'><li className="font-bold text-center border-b-4 border-[#FF3811] p-2 rounded-xl"> Dashboard </li></Link>
+                                <button onClick={handleLogOut} className="font-bold border-b-4 border-[#FF3811] p-2 rounded-xl">Log Out</button>
+                            </ul>
+                        </div> 
                     }
                     <div>
                         {

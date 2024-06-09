@@ -9,6 +9,7 @@ import useAdmin from "../Hooks/useAdmin";
 import useDeliveryMen from "../Hooks/useDeliveryMen";
 import useUsers from "../Hooks/useUsers";
 import { FaUsers } from "react-icons/fa";
+import { FaChartLine } from "react-icons/fa6";
 
 const SiteBar = () => {
     const [isAdmin] = useAdmin();
@@ -62,6 +63,12 @@ const SiteBar = () => {
                                     <NavLink to="/dashboard/allUser" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
                                         <FaUsers className="w-5 h-5 fill-current dark:text-gray-600" />
                                         <span>All Users</span>
+                                    </NavLink>
+                                </li>
+                                <li className="dark:bg-gray-100 dark:text-gray-900">
+                                    <NavLink to="/dashboard/ChartBoard" className={({ isActive }) => isActive ? 'flex items-center space-x-3 rounded-md font-bold border-b-4 p-2 border-[#FF3811]' : 'font-family flex items-center p-2 space-x-3 rounded-md'}>
+                                        <FaChartLine className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>Chart Board</span>
                                     </NavLink>
                                 </li>
                             </>

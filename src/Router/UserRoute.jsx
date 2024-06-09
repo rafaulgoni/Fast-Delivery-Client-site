@@ -1,25 +1,25 @@
 import PropTypes from 'prop-types';
-import useAdmin from '../Hooks/useAdmin';
 import useAuth from '../Hooks/useAuth';
+import useUsers from '../Hooks/useUsers';
 import { Navigate } from 'react-router-dom';
 
-const AdminRoute = ({children}) => {
+const UserRoute = ({ children }) => {
     const { user, loading } = useAuth();
-    const [isAdmin, isAdminLoading] = useAdmin();
+    const [isPublicUser, isAdminLoading] = useUsers();
 
     if (loading || isAdminLoading) {
         return <span className="loading loading-bars loading-lg text-[#FF3811] text-center"></span>
     }
 
-    if (user && isAdmin) {
+    if (user && isPublicUser) {
         return children;
     }
 
     return <Navigate to="/"></Navigate>
 };
 
-export default AdminRoute;
+export default UserRoute;
 
-AdminRoute.propTypes = {
+UserRoute.propTypes = {
     children: PropTypes.node,
 }

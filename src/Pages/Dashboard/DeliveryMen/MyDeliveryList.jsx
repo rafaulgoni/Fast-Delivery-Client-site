@@ -2,6 +2,7 @@ import usePublic from "../../../Hooks/usePublic";
 import { useQuery } from "@tanstack/react-query";
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import { Link } from "react-router-dom";
 
 const MyDeliveryList = () => {
 
@@ -136,7 +137,7 @@ const MyDeliveryList = () => {
                                     {delivery.ParcelDeliveryAddress}
                                 </th>
                                 <th>
-                                    <button className="btn btn-sm bg-green-100">View Location</button>
+                                    <Link to={`/dashboard/mapBox/${delivery._id}`} className="btn btn-sm bg-green-100">View Location</Link>
                                 </th>
                                 <th>
                                     <button onClick={() => handleBookingCancel(delivery._id)} className="btn btn-sm bg-[#FF3811]">Cancel</button>

@@ -38,6 +38,12 @@ https://go-parcel-book-store.web.app
 
 - [Animate.css](https://animate.style/)
 
+- [react-countUp](https://www.npmjs.com/package/react-countup)
+
+- [React MapGL](https://visgl.github.io/react-map-gl/)
+
+- [React Apex Chart](https://apexcharts.com/docs/react-charts/)
+
 
 
 ## Author

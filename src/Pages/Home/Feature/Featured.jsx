@@ -35,17 +35,6 @@ const Featured = () => {
                             <button type="button" className="flex items-center justify-center font-bold border-b-4 border-[#FF3811] p-3 rounded-xl"><span className="mr-1">See more</span> <FaLongArrowAltRight /></button>
                         </div>
                     </div>
-                    {/* <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
-                        <img src="https://i.ibb.co/Fb3H8p2/360.jpg" alt="" className="h-80 dark:bg-gray-500 aspect-video" />
-                        <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
-                            <span className="text-xs uppercase text-[#FF3811]">Fast delivery</span>
-                            <h3 className="text-3xl font-bold">For Admins in our Fast Delivery</h3>
-                            <p className="my-6 dark:text-gray-600"><span className="font-bold">Comprehensive Management:</span> Oversee all parcel bookings and assignments with a powerful admin dashboard. Manage users, assign deliveries, and monitor the entire delivery process seamlessly. <br />
-                                <span className="font-bold">Analytics & Reports:</span> Gain insights into your delivery operations with detailed analytics and reports. Make data-driven decisions to optimize efficiency. <br />
-                                <span className="font-bold">User Management:</span> Easily manage customer and delivery personnel accounts, ensuring smooth operation and communication.</p>
-                            <button type="button" className="flex items-center justify-center font-bold border-b-4 border-[#FF3811] p-3 rounded-xl"><span className="mr-1">See more</span> <FaLongArrowAltRight /></button>
-                        </div>
-                    </div> */}
                 </div>
             </section>
         </div>

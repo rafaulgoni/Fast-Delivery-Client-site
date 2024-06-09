@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
+import { Link } from "react-router-dom";
 
 const AllDeliveryMen = () => {
     
@@ -54,7 +55,7 @@ const AllDeliveryMen = () => {
                                 <span className="badge badge-ghost badge-sm">{men.email}</span>
                             </td>
                             <th>
-                                <button className="btn bg-[#FF3811] btn-sm">Review</button>
+                                <Link to ={`/dashboard/DeliveryMenReview/${men._id}`} className="btn bg-[#FF3811] btn-sm">Review</Link>
                             </th>
                         </tr>
                         )

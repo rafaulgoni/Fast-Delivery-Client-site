@@ -3,8 +3,41 @@ import CountUp from 'react-countup';
 import { MdBookmarkAdded } from "react-icons/md";
 import { AiOutlineDeliveredProcedure } from "react-icons/ai";
 import { FaUsers } from "react-icons/fa";
+import usePublic from '../../../Hooks/usePublic';
+import { useQuery } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
 
 const ContactUs = () => {
+
+    const publicAPT = usePublic()
+    const { data: users = []} = useQuery({
+        queryKey: ['/users'],
+        queryFn: async () => {
+            const res = await publicAPT.get("/users");
+            return res.data;
+
+        }
+    })
+
+    const [book, setBook] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/book')
+            .then(res => res.json())
+            .then(data => {
+                setBook(data)
+            })
+    }, [])
+
+    const { data: myDelivery = [] } = useQuery({
+        queryKey: ['/booking'],
+        queryFn: async () => {
+            const res = await publicAPT.get("/booking?BookingStatus=On The Way");
+            return res.data;
+
+        }
+    })
+
+
     return (
         <div className="contact mb-20 md:p-10 text-white bg-fixed">
             <div className='md:py-8 md:px-16 bg-slate-500 bg-opacity-40'>
@@ -17,7 +50,7 @@ const ContactUs = () => {
                     </div>
                     <div className=" grid md:grid-cols-3 lg:grid-cols-3 md:space-x-10">
                         <div>
-                            <CountUp start={0} end={506}>
+                            <CountUp start={0} end={book.length}>
                                 {({ countUpRef, start }) => (
                                     <div className='grid space-y-2 text-center'>
                                         <div className='p-3 rounded-xl'>
@@ -32,7 +65,7 @@ const ContactUs = () => {
                             </CountUp>
                         </div>
                         <div>
-                            <CountUp start={0} end={305}>
+                            <CountUp start={0} end={myDelivery.length}>
                                 {({ countUpRef, start }) => (
                                     <div className='grid space-y-2 text-center'>
                                         <div className='lg:p-3 rounded-xl'>
@@ -47,7 +80,7 @@ const ContactUs = () => {
                             </CountUp>
                         </div>
                         <div>
-                            <CountUp start={0} end={956}>
+                            <CountUp start={0} end={users.length}>
                                 {({ countUpRef, start }) => (
                                     <div className='grid space-y-2 text-center'>
                                         <div className='p-3 rounded-xl'>

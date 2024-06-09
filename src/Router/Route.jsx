@@ -20,6 +20,10 @@ import MyReview from "../Pages/Dashboard/DeliveryMen/MyReview";
 import ReviewUpdate from "../Components/ReviewUpdate";
 import DeliveryMenRoute from "./DeliveryMenRoute";
 import AdminRoute from "./AdminRoute";
+import DeliveryMenReviews from "../Pages/Dashboard/Admin/DeliveryMenReviews";
+import MapBox from '../Components/MapBox';
+import UserRoute from './UserRoute';
+import ChartBoard from "../Pages/Dashboard/Admin/ChartBoard";
 
 
 
@@ -46,37 +50,42 @@ export const router = createBrowserRouter([
     {
       path: "/dashboard",
       element: <PrivateRoute><DashboardLayOut/></PrivateRoute> ,
+      errorElement: <Error/>,
       children: [
         {
           path: '/dashboard',
-          element: <Dashboard/>
+          element: <Dashboard/>,
         },
         {
           path:'/dashboard/book',
-          element: <BookAParcel/>
+          element: <UserRoute><BookAParcel/></UserRoute>,
         },
         {
           path:'/dashboard/myParcel',
-          element: <MyParcels/>
+          element: <UserRoute><MyParcels/></UserRoute>,
         },
         {
           path:'/dashboard/myProfile',
-          element: <MyProfile/>
+          element: <MyProfile/>,
         },
         {
           path:'/dashboard/userUpdate/:id',
-          element: <UserUpdate/>,
+          element: <UserRoute><UserUpdate/></UserRoute>,
           loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
         },
         {
           path:'/dashboard/reviewUpdate/:id',
-          element: <ReviewUpdate/>
+          element: <UserRoute><ReviewUpdate/></UserRoute>,
         },
 
         //delivery man
         {
           path:'/dashboard/myDelivery',
-          element: <DeliveryMenRoute><MyDeliveryList/></DeliveryMenRoute> ,
+          element: <DeliveryMenRoute><MyDeliveryList/></DeliveryMenRoute>,
+        },
+        {
+          path:'/dashboard/mapBox/:id',
+          element: <DeliveryMenRoute><MapBox/></DeliveryMenRoute>,
         },
         {
           path:'/dashboard/myReview',
@@ -100,6 +109,14 @@ export const router = createBrowserRouter([
         {
           path:'/dashboard/allUser',
           element: <AdminRoute><AllUser/></AdminRoute>,
+        },
+        {
+          path:'/dashboard/ChartBoard',
+          element: <AdminRoute><ChartBoard/></AdminRoute>,
+        },
+        {
+          path:'/dashboard/DeliveryMenReview/:id',
+          element: <AdminRoute><DeliveryMenReviews/></AdminRoute>,
         },
 
       ]

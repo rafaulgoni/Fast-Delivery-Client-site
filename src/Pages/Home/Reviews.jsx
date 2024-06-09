@@ -29,7 +29,7 @@ const Reviews = () => {
                         reviews.map(review => <SwiperSlide
                             key={review._id}
                         >
-                            <div className="card lg:card-side bg-base-100 border max-w-[900px] mx-auto">
+                            <div className="card md:card-side bg-base-100 border max-w-[900px] mx-auto">
                                 <figure className='w-96'><img src={review.image} alt="Album" /></figure>
                                 <div className="card-body">
                                 <Rating
