@@ -35,7 +35,7 @@ const BookAParcel = () => {
             DeliveryAddressLatitude, DeliveryAddressLongitude, email, displayName, bookingDate, DeliveryMenID, BookingStatus, ApproximateDeliveryDate
         }
 
-        fetch('http://localhost:5000/book', {
+        fetch('https://b9a12-server-side-rafaulgoni.vercel.app/book', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

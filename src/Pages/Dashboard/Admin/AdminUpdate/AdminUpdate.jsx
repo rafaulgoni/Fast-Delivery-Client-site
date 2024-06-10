@@ -17,7 +17,7 @@ const AdminUpdate = () => {
 
         const update = { DeliveryMenID, BookingStatus }
 
-        fetch(`http://localhost:5000/book/${_id}`, {
+        fetch(`https://b9a12-server-side-rafaulgoni.vercel.app/book/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

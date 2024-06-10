@@ -26,7 +26,7 @@ const AllUser = () => {
             confirmButtonText: 'Yes, create delivery Men!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`https://b9a12-server-side-rafaulgoni.vercel.app/users/${id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
@@ -61,7 +61,7 @@ const AllUser = () => {
             confirmButtonText: 'Yes, create Admin!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`https://b9a12-server-side-rafaulgoni.vercel.app/users/${id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'

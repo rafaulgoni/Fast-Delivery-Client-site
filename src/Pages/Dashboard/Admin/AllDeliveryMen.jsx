@@ -6,7 +6,7 @@ const AllDeliveryMen = () => {
     
     const [delivery, setDelivery] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/userDeliveryMen?Role=deliveryMen")
+        fetch("https://b9a12-server-side-rafaulgoni.vercel.app/userDeliveryMen?Role=deliveryMen")
             .then(res => res.json())
             .then(data => {
                 setDelivery(data)

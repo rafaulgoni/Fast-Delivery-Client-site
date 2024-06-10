@@ -29,7 +29,7 @@ const MyDeliveryList = () => {
             confirmButtonText: 'Yes, Cancel it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/book/${id}`, {
+                fetch(`https://b9a12-server-side-rafaulgoni.vercel.app/book/${id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
@@ -63,7 +63,7 @@ const MyDeliveryList = () => {
             confirmButtonText: 'Yes, delivery done!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/book/${id}`, {
+                fetch(`https://b9a12-server-side-rafaulgoni.vercel.app/book/${id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'

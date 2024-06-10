@@ -9,7 +9,7 @@ import '@smastrom/react-rating/style.css'
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://b9a12-server-side-rafaulgoni.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
                 setReviews(data)

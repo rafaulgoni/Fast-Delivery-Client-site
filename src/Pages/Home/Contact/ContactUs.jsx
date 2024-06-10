@@ -9,7 +9,7 @@ const ContactUs = () => {
 
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://b9a12-server-side-rafaulgoni.vercel.app/users')
             .then(res => res.json())
             .then(data => {
                 setUsers(data)
@@ -18,7 +18,7 @@ const ContactUs = () => {
 
     const [book, setBook] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/book')
+        fetch('https://b9a12-server-side-rafaulgoni.vercel.app/booking?BookingStatus=Deliver')
             .then(res => res.json())
             .then(data => {
                 setBook(data)
@@ -27,7 +27,7 @@ const ContactUs = () => {
 
     const [myDelivery, setMyDelivery] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/booking?BookingStatus=On The Way')
+        fetch('https://b9a12-server-side-rafaulgoni.vercel.app/booking?BookingStatus=On The Way')
             .then(res => res.json())
             .then(data => {
                 setMyDelivery(data)
@@ -46,7 +46,7 @@ const ContactUs = () => {
                     </div>
                     <div className=" grid md:grid-cols-3 lg:grid-cols-3 md:space-x-10">
                         <div>
-                            <CountUp start={0} end={book.length}>
+                            <CountUp start={0} end={myDelivery.length}>
                                 {({ countUpRef, start }) => (
                                     <div className='grid space-y-2 text-center'>
                                         <div className='p-3 rounded-xl'>
@@ -61,7 +61,7 @@ const ContactUs = () => {
                             </CountUp>
                         </div>
                         <div>
-                            <CountUp start={0} end={myDelivery.length}>
+                            <CountUp start={0} end={book.length}>
                                 {({ countUpRef, start }) => (
                                     <div className='grid space-y-2 text-center'>
                                         <div className='lg:p-3 rounded-xl'>

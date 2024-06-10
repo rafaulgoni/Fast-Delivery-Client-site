@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
 
 const axiosPublic = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://b9a12-server-side-rafaulgoni.vercel.app'
 })
 const usePublic = () => {
     const navigate = useNavigate();

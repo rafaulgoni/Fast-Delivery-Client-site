@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
         {
           path:'/dashboard/userUpdate/:id',
           element: <UserRoute><UserUpdate/></UserRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
+          loader: ({ params }) => fetch(`https://b9a12-server-side-rafaulgoni.vercel.app/books/${params.id}`)
         },
         {
           path:'/dashboard/reviewUpdate/:id',
@@ -105,7 +105,7 @@ export const router = createBrowserRouter([
         {
           path:'/dashboard/adminUpdate/:id',
           element: <AdminRoute><AdminUpdate/></AdminRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
+          loader: ({ params }) => fetch(`https://b9a12-server-side-rafaulgoni.vercel.app/books/${params.id}`)
         },
         {
           path:'/dashboard/allDeliveryMen',

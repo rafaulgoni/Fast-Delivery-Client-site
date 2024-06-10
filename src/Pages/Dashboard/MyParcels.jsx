@@ -29,7 +29,7 @@ const MyParcels = () => {
             confirmButtonText: 'Yes, cancel it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/book/${_id}`, {
+                fetch(`https://b9a12-server-side-rafaulgoni.vercel.app/book/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -105,7 +105,9 @@ const MyParcels = () => {
                                     }
                                 </td>
                                 <td>
-                                    <Link to={`/dashboard/payment/${booked._id}`} className="bg-green-800 rounded-3xl btn-sm btn font-bold">Pay</Link>
+                                    {
+                                        booked.BookingStatus === "On The Way" ? <button className=" rounded-3xl btn-sm btn font-bold">Pay</button> : <Link to={`/dashboard/payment/${booked._id}`} className="bg-green-800 rounded-3xl btn-sm btn font-bold">Pay</Link>
+                                    }
                                 </td>
                             </tr>
                         </tbody>)

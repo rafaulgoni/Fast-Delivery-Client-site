@@ -30,7 +30,7 @@ const UserUpdate = () => {
 
         const update = { number, ParcelType, ParcelWeight, price, ReceiverName, ReceiverPhoneNumber, ParcelDeliveryAddress, RequestedDeliveryDate, DeliveryAddressLatitude, DeliveryAddressLongitude }
 
-        fetch(`http://localhost:5000/book/${_id}`, {
+        fetch(`https://b9a12-server-side-rafaulgoni.vercel.app/book/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

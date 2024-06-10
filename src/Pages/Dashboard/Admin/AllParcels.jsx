@@ -7,7 +7,7 @@ const AllParcels = () => {
     const [book, setBook] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/book')
+        fetch('https://b9a12-server-side-rafaulgoni.vercel.app/book')
             .then(res => res.json())
             .then(data => {
                 setBook(data)
