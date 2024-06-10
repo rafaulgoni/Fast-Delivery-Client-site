@@ -3,21 +3,18 @@ import CountUp from 'react-countup';
 import { MdBookmarkAdded } from "react-icons/md";
 import { AiOutlineDeliveredProcedure } from "react-icons/ai";
 import { FaUsers } from "react-icons/fa";
-import usePublic from '../../../Hooks/usePublic';
-import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 
 const ContactUs = () => {
 
-    const publicAPT = usePublic()
-    const { data: users = []} = useQuery({
-        queryKey: ['/users'],
-        queryFn: async () => {
-            const res = await publicAPT.get("/users");
-            return res.data;
-
-        }
-    })
+    const [users, setUsers] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/users')
+            .then(res => res.json())
+            .then(data => {
+                setUsers(data)
+            })
+    }, [])
 
     const [book, setBook] = useState([])
     useEffect(() => {
@@ -28,15 +25,14 @@ const ContactUs = () => {
             })
     }, [])
 
-    const { data: myDelivery = [] } = useQuery({
-        queryKey: ['/booking'],
-        queryFn: async () => {
-            const res = await publicAPT.get("/booking?BookingStatus=On The Way");
-            return res.data;
-
-        }
-    })
-
+    const [myDelivery, setMyDelivery] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/booking?BookingStatus=On The Way')
+            .then(res => res.json())
+            .then(data => {
+                setMyDelivery(data)
+            })
+    }, [])
 
     return (
         <div className="contact mb-20 md:p-10 text-white bg-fixed">

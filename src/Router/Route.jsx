@@ -24,6 +24,7 @@ import DeliveryMenReviews from "../Pages/Dashboard/Admin/DeliveryMenReviews";
 import MapBox from '../Components/MapBox';
 import UserRoute from './UserRoute';
 import ChartBoard from "../Pages/Dashboard/Admin/ChartBoard";
+import Payment from "../Components/Payment";
 
 
 
@@ -76,6 +77,10 @@ export const router = createBrowserRouter([
         {
           path:'/dashboard/reviewUpdate/:id',
           element: <UserRoute><ReviewUpdate/></UserRoute>,
+        },
+        {
+          path:'/dashboard/payment/:id',
+          element: <UserRoute><Payment/></UserRoute>,
         },
 
         //delivery man

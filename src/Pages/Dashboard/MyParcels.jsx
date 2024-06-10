@@ -46,7 +46,7 @@ const MyParcels = () => {
             }
         })
     }
-    
+
 
     return (
         <div>
@@ -101,10 +101,12 @@ const MyParcels = () => {
                                 </td>
                                 <td>
                                     {
-                                       booked.BookingStatus === "On The Way" ? <button className="rounded-3xl btn-sm btn">Review</button> : <Link to={`/dashboard/reviewUpdate/${booked._id}`} className="bg-green-500 rounded-3xl btn-sm btn">Review</Link>
+                                        booked.BookingStatus === "On The Way" ? <button className="rounded-3xl btn-sm btn">Review</button> : <Link to={`/dashboard/reviewUpdate/${booked._id}`} className="bg-green-500 rounded-3xl btn-sm btn">Review</Link>
                                     }
                                 </td>
-                                <td><button className="bg-green-800 rounded-3xl btn-sm btn font-bold">Pay</button></td>
+                                <td>
+                                    <Link to={`/dashboard/payment/${booked._id}`} className="bg-green-800 rounded-3xl btn-sm btn font-bold">Pay</Link>
+                                </td>
                             </tr>
                         </tbody>)
                     }
