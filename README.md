@@ -6,6 +6,11 @@ Fast delivery is a cutting-edge parcel management platform designed to revolutio
 ## 🔗 Live Site URL:
 https://go-parcel-book-store.web.app
 
+## Problem face
+
+"I faced two problems while projecting fast delivery and implementing a payment gateway. However, after getting a very nice idea with the help of Google Chat GPT, I have been able to solve my problems."
+
+
 ## Resources:
 
 - [AOS Package](https://www.npmjs.com/package/aos)
