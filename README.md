@@ -2,14 +2,17 @@
 
 Description: Welcome to Fast delivery – Your Ultimate Parcel Delivery Solution!
 Fast delivery is a cutting-edge parcel management platform designed to revolutionize the way you handle deliveries. Whether you're a customer looking to send a parcel swiftly, an admin managing logistics, or a delivery person ensuring timely arrivals, Fast delivery offers a seamless and efficient experience for everyone involved.
+
 For Customers:
 - Easy Booking: Send parcels effortlessly with just a few clicks. Our intuitive interface makes the booking process quick and straightforward.
 - Real-Time Tracking: Stay informed with live tracking of your parcels from dispatch to delivery. Know exactly where your parcel is at all times.
 - Delivery History: Access your delivery history and manage your past and upcoming shipments in one place.
+
 For Admins:
 - Comprehensive Management: Oversee all parcel bookings and assignments with a powerful admin dashboard. Manage users, assign deliveries, and monitor the entire delivery process seamlessly.
 - Analytics & Reports: Gain insights into your delivery operations with detailed analytics and reports. Make data-driven decisions to optimize efficiency.
 - User Management: Easily manage customer and delivery personnel accounts, ensuring smooth operation and communication.
+  
 For Delivery Personnel:
 - Assigned Deliveries: View and manage your assigned deliveries effortlessly. Update delivery statuses in real-time and keep track of your performance.
 - Route Optimization: Access optimized delivery routes to ensure timely and efficient deliveries. Save time and increase productivity with smart route planning.
