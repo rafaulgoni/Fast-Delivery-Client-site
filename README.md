@@ -25,14 +25,13 @@ https://go-parcel-book-store.web.app
 - [@rafaulgoni](https://github.com/rafaulgoni)
 
 
+
 ## Installation
 
-Install my-project with npm
+Install my-project with clone
 
 ```bash
-  npm install b9a12-client-side-rafaulgoni
-  cd b9a12-client-side-rafaulgoni
-
-  npm install b9a12-server-side-rafaulgoni
-  cd b9a12-server-side-rafaulgoni
+  git clone https://github.com/rafaulgoni/Fast-Delivery-Client-site.git
+  npm Install
+  npm run dev
 ```
